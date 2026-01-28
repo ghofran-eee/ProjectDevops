@@ -1,11 +1,13 @@
 package tn.esprit.studentmanagement;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class) // tester une méthode sans démarrer toute l'application
 public class TestUnitaire {
     @Test
     public void contextLoads() {
