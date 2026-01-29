@@ -16,6 +16,7 @@ import tn.esprit.studentmanagement.services.StudentService;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -35,7 +36,7 @@ public class TestUnitaire {
         assertTrue(result == 4, "2 + 2 devrait être égal à 4");
     }*/
     @Mock
-    private StudentRepository studentRepository;
+    private StudentRepository studentRepository; //
 
     @InjectMocks
     private StudentService studentService;
@@ -66,15 +67,23 @@ public class TestUnitaire {
     @Test
     public void testGetAllStudents_EmptyDatabase() {
         // Arrange
-        when(studentRepository.findAll()).thenReturn(Arrays.asList());
+        Student student1 = new Student();
+        student1.setIdStudent(1L);
+        student1.setFirstName("Ouelhazi");
+        student1.setFirstName("Ghofrane");
+        student1.setEmail("ouelhazighofrane19@gmail.com");
+        student1.setPhone("12345678");
+        student1.setDateOfBirth(LocalDate.of(2000, 5, 15));
+
+        when(studentRepository.findById(1L)).thenReturn(Optional.of(student1));
 
         // Act
-        List<Student> actualStudents = studentService.getAllStudents();
+        Student result = studentService.getStudentById(1L);
 
         // Assert
-        assertNotNull(actualStudents);
-        assertTrue(actualStudents.isEmpty());
-        verify(studentRepository, times(1)).findAll();
+        assertNotNull(result);
+        assertEquals("Ouelhazi", result.getFirstName());
+        verify(studentRepository, times(1)).findById(1L);
     }
 
 }
