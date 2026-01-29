@@ -70,7 +70,7 @@ public class TestUnitaire {
         Student student1 = new Student();
         student1.setIdStudent(1L);
         student1.setFirstName("Ouelhazi");
-        student1.setFirstName("Ghofrane");
+        student1.setLastName("Ghofrane");
         student1.setEmail("ouelhazighofrane19@gmail.com");
         student1.setPhone("12345678");
         student1.setDateOfBirth(LocalDate.of(2000, 5, 15));
