@@ -82,7 +82,7 @@ public class TestUnitaire {
 
         // Assert
         assertNotNull(result);
-        //assertEquals("Ouelhazi", result.getFirstName());
+        //assertEquals("Ouelhazi", result.getFirstName()); 
         assertEquals(student1, result);
         verify(studentRepository, times(1)).findById(1L);
     }
