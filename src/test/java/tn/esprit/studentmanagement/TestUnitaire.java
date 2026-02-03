@@ -81,10 +81,10 @@ public class TestUnitaire {
         Student result = studentService.getStudentById(1L);
 
         // Assert
-        assertNotNull(result);   
+        assertNotNull(result);
         //assertEquals("Ouelhazi", result.getFirstName());
         assertEquals(student1, result);
-        verify(studentRepository, times(1)).findById(1L);
+        verify(studentRepository, times(1)).findById(1L);    
     }
 
 }
